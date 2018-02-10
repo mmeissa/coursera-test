@@ -13,10 +13,19 @@ function LunchCheckController($scope) {
 
   $scope.checkNumberOfDishes = function () {
     $scope.messageToDisplay =FindCorrectMessage($scope.enteredDishesString);
+    $scope.textClass="";
+    $scope.messageClass="";
+    if ($scope.messageToDisplay== "Enjoy!" || $scope.messageToDisplay == "Too much!") {
+      $scope.textClass="greenBorder";
+      $scope.messageClass="greenText";
+    }
+    else if($scope.messageToDisplay == "Please enter data first" || $scope.messageToDisplay == "Empty dishes are ignored! Please enter valid data"){
+      $scope.textClass="redBorder";
+      $scope.messageClass="redText";
+    }
   };
 function FindCorrectMessage(data) {
-    $scope.textClass="";//reset classes
-    $scope.messageClass="";//reset classes
+
     if (data=="") {
       return "Please enter data first" ;
     }
@@ -27,13 +36,9 @@ function FindCorrectMessage(data) {
       return  "Empty dishes are ignored! Please enter valid data";
     }
     if (count <4) {
-      $scope.textClass="greenBorder";
-      $scope.messageClass="greenText";
       return  "Enjoy!";
     }
     if (count >=4) {
-      $scope.textClass="redBorder";
-      $scope.messageClass="redText";
       return  "Too much!" ;
     }
   };
