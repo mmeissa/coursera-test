@@ -1,0 +1,19 @@
+
+
+
+
+    <table class="table table-striped table-hover" ng-if="found.length > 0">
+      <thead class="bg-warning">
+        <tr >
+          <th>Item Name</th> <th>Short name</th> <th>Item description</th><th></th>
+        </tr>
+      </thead>
+
+      <tr ng-repeat="item in found">
+        <td>{{item.name}}</td>
+        <td>{{item.short_name}}</td>
+        <td>{{item.description}}</td>
+        <td>  <button class="btn btn-danger" ng-click='onRemove({index: $index})'><span class="glyphicon glyphicon-minus-sign"></span> Don't want this one!</button></td>
+      </tr>
+    </table>
+    <div ng-if="found.length === 0" class="bg-warning"><h3>Nothing found!</h3> </div>
