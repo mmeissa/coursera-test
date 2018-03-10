@@ -1,0 +1,33 @@
+body {
+  font-size: 1.2em;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+.loading-icon {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+}
+
+li[ui-sref]:hover {
+  background-color:#ffc;
+    width: 300px;
+    border: solid black 1px;
+}
+li[ui-sref] {
+  display: block;
+  cursor: pointer;
+
+  padding-left: 5px;
+  padding-right: 5px;
+
+}
+.itemName{
+  color: #a50;
+  margin-top: 5px;
+}

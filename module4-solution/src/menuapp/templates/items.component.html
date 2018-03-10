@@ -1,0 +1,10 @@
+<table class="table table-striped table-bordered table-inverse table-responsive">
+  <thead class="bg-warning">
+  <tr >
+    <th >S. Name</th><th>Name</th><th>description</th>
+  </tr>
+</thead>
+  <tr ng-repeat="item in $ctrl.items">
+    <td> {{item.short_name}}</td><td> {{item.name}}</td><td>{{item.description}}</td>
+  </tr>
+</table>
