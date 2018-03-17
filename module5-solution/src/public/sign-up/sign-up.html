@@ -1,0 +1,91 @@
+<div class="container" >
+  <h2 id="menu-categories-title" class="text-center">Sign up for our newsletter </h2>
+  <form name="signUpForm" novalidate>
+    <div class="row form-group">
+      <div class="col-md-2">First Name <label for="firstName"></label>  </div>
+      <div class="col-md-5">
+        <input type="text" name="firstName" placeholder="First Name" ng-model=regCtrl.userData.firstName
+        required minlength="4">
+      </div>
+      <div class="col-md-5">
+        <span ng-if="signUpForm.firstName.$error.required && signUpForm.firstName.$touched">
+          First Name is required
+        </span>
+        <span ng-if="signUpForm.firstName.$error.minlength && signUpForm.firstName.$touched">
+          First Name can't be less than 4 letters
+        </span>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-2">Last name <label for="lastName"></label>  </div>
+      <div class="col-md-5">
+        <input type="text" name="lastName" placeholder="Last name" ng-model=regCtrl.userData.lastName
+        required minlength="4">
+      </div>
+      <div class="col-md-5">
+        <span
+        ng-if="signUpForm.lastName.$error.required
+        && signUpForm.lastName.$touched">
+          Last name is required
+        </span>
+        <span ng-if="signUpForm.lastName.$error.minlength && signUpForm.lastName.$touched">
+          Last Name can't be less than 4 letters
+        </span>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-2">Email address <label for="email"></label>  </div>
+      <div class="col-md-5">
+        <input type="email" name="email" placeholder="Email address" ng-model=regCtrl.userData.email
+        required >
+      </div>
+      <div class="col-md-5">
+        <span ng-if="signUpForm.email.$error.required && signUpForm.email.$touched">
+          Email Name is required
+        </span>
+        <span ng-if="signUpForm.email.$error.invalid && signUpForm.email.$touched">
+          Invalid Email address
+        </span>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-2">Phone number <label for="phone"></label>  </div>
+      <div class="col-md-5">
+        <input type="text" name="phone" placeholder="Phone ###-###-####" ng-model=regCtrl.userData.phone
+        required
+        pattern="(\d{3})-(\d{3})-(\d{4})" >
+      </div>
+      <div class="col-md-5">
+        <span ng-if="signUpForm.phone.$error.required && signUpForm.phone.$touched">
+          Phone number Name is required
+        </span>
+        <span ng-if="signUpForm.phone.$error.invalid && signUpForm.phone.$touched">
+          Phone must be in the format ###-###-####
+        </span>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-2">Favorite dish menu number<label for="short_name"></label>  </div>
+      <div class="col-md-5">
+        <input type="text" name="short_name" placeholder="favorite dish number"
+        ng-model=regCtrl.userData.short_name
+        ng-change="regCtrl.userData.short_name = regCtrl.userData.short_name.toUpperCase()"
+        validator = "regCtrl.myCustomValidationFunction(regCtrl.userData.short_name)">
+      </div>
+      <div class="col-md-5">
+        <span ng-if="regCtrl.itemNotFound">No such menu number exists</span>
+      </div>
+    </div>
+
+    <div class="col-md-5 col-md-offset-2">
+      <button type="submit" ng-click="regCtrl.save();" class="btn btn-success"
+      ng-disabled="signUpForm.$invalid">submit</button>
+    </div>
+    <div class="col-md-5">
+      <span ng-if="regCtrl.saved">Your information has been saved successfuly</span>
+
+    </div>
+</form>
+
+
+</div>
